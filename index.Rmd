@@ -1,7 +1,7 @@
 ---
 title: "Osa Conservation: Movement report"
 author:
-  - Chris Beirne
+  - Osa Conservation
 site: bookdown::test-bookdown
 output: bookdown::gitbook
 documentclass: book
