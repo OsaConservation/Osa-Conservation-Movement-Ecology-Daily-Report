@@ -58,7 +58,7 @@ sheet02 <- read_excel("data/trap_deployments.xlsx",
 MOVE_PASS <- Sys.getenv("MOVEBANK_PASSWORD")
 MOVE_USE  <- Sys.getenv("MOVEBANK_USERNAME")
 
-loginStored <- movebankLogin(username=MOVE_USE, 
+loginStored <- movebankLogin(username=OSASC, 
                              password=MOVE_PASS)
 
 # Get animals
@@ -73,7 +73,7 @@ tmp <-getMovebankAnimals(study=2526574641,login=loginStored)
 # andean condor foundation
 tmp4 <- getMovebankAnimals(study=2885579493,login=loginStored)
 # peccary project
-tmp5 <- getMovebankAnimals(study=		5956356622,login=loginStored)
+tmp5 <- getMovebankAnimals(study=5956356622,login=loginStored)
 tmp5 <- tmp5[tmp5$local_identifier!="TEST",]
 
 # Move nickname to locak_identifier
@@ -104,8 +104,10 @@ start_mammal <- t-as.difftime(48,units='days')
 start_tapir <- t-as.difftime(96,units='days')
 
 # Vultures
-tmp1 <- getMovebankData(study=1573471517, login=loginStored,  removeDuplicatedTimestamps=TRUE,
-                       timestamp_start=start_t)
+tmp1 <- getMovebankData(study=1573471517, 
+                        login=loginStored, 
+                        removeDuplicatedTimestamps=TRUE,
+                        timestamp_start=start_t)
 
 #OCelot - removed as collar no longer reporting
 #tmp2 <- getMovebankData(study=2526574641, login=loginStored,  removeDuplicatedTimestamps=TRUE)
@@ -122,19 +124,21 @@ tmp1 <- getMovebankData(study=1573471517, login=loginStored,  removeDuplicatedTi
 #                       timestamp_start=start_mammal)
 
 #Andean condor foundation
-tmp5 <- getMovebankData(study=2885579493, login=loginStored,  removeDuplicatedTimestamps=TRUE,
-                       timestamp_start=start_mammal)
+#tmp5 <- getMovebankData(study=2885579493, login=loginStored,  removeDuplicatedTimestamps=TRUE,
+                       #timestamp_start=start_mammal)
 
 #Peccary project
-tmp6 <- getMovebankData(study=5956356622, login=loginStored,  removeDuplicatedTimestamps=TRUE,
-                       timestamp_start=start_mammal)
+tmp6 <- getMovebankData(study=5956356622, 
+                        login=loginStored,
+                        removeDuplicatedTimestamps=TRUE,
+                        timestamp_start=start_mammal)
 
-ec_names <- data.frame(code=row.names(tmp5@idData), name=(tmp5@idData$nick_name))
+#ec_names <- data.frame(code=row.names(tmp5@idData), name=(tmp5@idData$nick_name))
 
 mov_dat <- moveStack(tmp1, 
                      #tmp3, 
                      #tmp4, 
-                     tmp5,
+                     #tmp5,
                      tmp6)
 
 # Remove the random zeros
