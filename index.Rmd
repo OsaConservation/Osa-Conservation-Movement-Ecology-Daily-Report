@@ -124,8 +124,10 @@ tmp1 <- getMovebankData(study=1573471517,
 #                       timestamp_start=start_mammal)
 
 #Andean condor foundation
-#tmp5 <- getMovebankData(study=2885579493, login=loginStored,  removeDuplicatedTimestamps=TRUE,
-                       #timestamp_start=start_mammal)
+#tmp5 <- getMovebankData(study=2885579493, 
+#                        login=loginStored, 
+#                        removeDuplicatedTimestamps=TRUE,
+#                        timestamp_start=start_mammal)
 
 #Peccary project
 tmp6 <- getMovebankData(study=5956356622, 
@@ -133,7 +135,7 @@ tmp6 <- getMovebankData(study=5956356622,
                         removeDuplicatedTimestamps=TRUE,
                         timestamp_start=start_mammal)
 
-#ec_names <- data.frame(code=row.names(tmp5@idData), name=(tmp5@idData$nick_name))
+#ec_names <- data.frame(code=row.names(tmp1@idData), #name=(tmp1@idData$nick_name))
 
 mov_dat <- moveStack(tmp1, 
                      #tmp3, 
@@ -342,13 +344,13 @@ dat <- dat[order(dat$animalName),]
 
 
 # Rename the ecuador tags
-dat$name<- as.character(dat$name)
-i <- 1
-for(i in 1: nrow(ec_names))
-  {
-    dat$name[dat$name==ec_names$code[i]] <- ec_names$name[i]      
-  }
-dat$name<- as.factor(dat$name)
+#dat$name<- as.character(dat$name)
+#i <- 1
+#for(i in 1: nrow(ec_names))
+#  {
+#    dat$name[dat$name==ec_names$code[i]] <- ec_names$name[i]      
+#  }
+#dat$name<- as.factor(dat$name)
 
 
 lfc <- do.call(st_sfc,
