@@ -58,7 +58,7 @@ sheet02 <- read_excel("data/trap_deployments.xlsx",
 MOVE_PASS <- Sys.getenv("MOVEBANK_PASSWORD")
 MOVE_USE  <- Sys.getenv("MOVEBANK_USERNAME")
 
-loginStored <- movebankLogin(username=OSASC, 
+loginStored <- movebankLogin(username=MOVE_USE, 
                              password=MOVE_PASS)
 
 # Get animals
