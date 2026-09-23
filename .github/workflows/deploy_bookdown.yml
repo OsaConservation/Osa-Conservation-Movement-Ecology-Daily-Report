@@ -2,7 +2,7 @@ name: scheduleRenderbook
 on:
   push:
   schedule:
-    - cron: "10 * * * *"
+    - cron: "0 10 * * 1"
 # Cancel previous runs if new one is triggered
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
