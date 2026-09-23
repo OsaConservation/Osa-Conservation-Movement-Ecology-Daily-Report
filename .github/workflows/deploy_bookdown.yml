@@ -43,9 +43,8 @@ jobs:
             "rmarkdown", "bookdown", "units", "leaflet", "move",
             "dplyr", "sf", "viridis", "kableExtra", "lubridate",
             "plotly", "googledrive", "purrr", "readxl", "geosphere",
-            "foreach", "leaflet.extras", "suncalc"
+            "foreach", "leaflet.extras", "suncalc", "raster"
           ))'
-          Rscript -e "install.packages('raster', type='mac.binary')"
 
       - name: Render Book
         env:
